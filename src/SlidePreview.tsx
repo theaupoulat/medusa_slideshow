@@ -47,10 +47,10 @@ export const SlidePreview = () => {
       >
         <div
           id="media_name"
-          className=" uppercase text-4xl"
+          className="media_name"
           style={{
             transform: `translateX(${textPosition}px)`,
-            color: textColor,
+            WebkitTextStrokeColor: textColor,
           }}
         >
           a la tv sur ma tv
