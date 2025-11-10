@@ -1,36 +1,18 @@
-import { useState } from "react";
 import "./App.css";
-import { isColorDark, slideColors } from "./colors";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "./components/ui/select";
-import { Slider } from "./components/ui/slider";
-
-const buildSelectOptions = () => {
-  return slideColors.map(({ hex, name }) => (
-    <SelectItem value={hex}>
-      <div
-        className="rounded-md w-[12px] h-[12px]"
-        style={{ backgroundColor: hex }}
-      ></div>{" "}
-      {name}
-    </SelectItem>
-  ));
-};
+import { isColorDark } from "./colors";
+import { Settings } from "./SlideSettings";
+import { useSettings } from "./SlideSettingsProvider";
 
 function App() {
-  const [textPosition, setTextPosition] = useState(0);
-  const [contentAngle, setContentAngle] = useState(0);
-  const [contentPosition, setContentPosition] = useState(0);
-  const [slideColor, setSlideColor] = useState(slideColors[0].hex);
+  const settings = useSettings();
 
-  const selectOptions = buildSelectOptions();
+  if (!settings) {
+    return;
+  }
+
+  const { slideColor, textPosition, contentAngle, contentPosition } = settings;
+
   const textColor = isColorDark(slideColor) ? "#FFFFFF" : "#000000";
-
   return (
     <div className="p-9 flex flex-col items-center gap-2.5 bg-slate-300">
       <Settings />
@@ -59,6 +41,7 @@ function App() {
             className="border-b-2 w-[400px]"
           ></div>
         </div>
+
         <div
           id="content"
           className=" flex flex-col items-center"
