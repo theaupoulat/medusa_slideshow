@@ -1,7 +1,7 @@
 import { type ChangeEvent } from "react";
 import { toast } from "sonner";
-import { Input } from "./components/ui/input";
-import { useSlideSettingsDispatch } from "./SlideSettingsProvider";
+import { Input } from "../../components/ui/input";
+import { useSlideSettingsDispatch } from "../SlideSettingsProvider";
 
 export const ImageUploader = () => {
   const dispatchSettings = useSlideSettingsDispatch();

@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from "react";
-import { slideColors } from "./colors";
+import { slideColors } from "../helpers/colors";
 
 interface SlideSettings {
   textPosition: number;

@@ -1,16 +1,20 @@
-import "./App.css";
-import { slideColors } from "./colors";
-import { Input } from "./components/ui/input";
+import "../App.css";
+import { Input } from "../components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./components/ui/select";
-import { Slider } from "./components/ui/slider";
-import { ImageUploader } from "./ImageUploader";
-import { useSettings, useSlideSettingsDispatch } from "./SlideSettingsProvider";
+} from "../components/ui/select";
+import { Slider } from "../components/ui/slider";
+import { Textarea } from "../components/ui/textarea";
+import { slideColors } from "../helpers/colors";
+import { ImageUploader } from "./components/ImageUploader.tsx";
+import {
+  useSettings,
+  useSlideSettingsDispatch,
+} from "./SlideSettingsProvider.tsx";
 
 const buildSelectOptions = () => {
   return slideColors.map(({ hex, name }) => (
@@ -104,8 +108,7 @@ export function Settings({}: {}) {
       </Select>
 
       <span> Slide title </span>
-      <Input
-        type="text"
+      <Textarea
         value={settings?.slideTitle}
         onChange={(e) =>
           dispatchSettings({

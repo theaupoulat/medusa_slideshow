@@ -1,8 +1,8 @@
 import html2canvas from "html2canvas-pro";
 import { useRef } from "react";
-import { isColorDark } from "./colors";
-import { Button } from "./components/ui/button";
-import { useSettings } from "./SlideSettingsProvider";
+import { Button } from "../components/ui/button";
+import { isColorDark } from "../helpers/colors";
+import { useSettings } from "../SlideSettings/SlideSettingsProvider";
 
 export const SlidePreview = () => {
   const settings = useSettings();

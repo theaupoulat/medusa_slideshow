@@ -1,7 +1,7 @@
 import "./App.css";
-import { SlidePreview } from "./SlidePreview";
-import { Settings } from "./SlideSettings";
-import { SlideSettingsProvider } from "./SlideSettingsProvider";
+import { SlidePreview } from "./SlidePreview/SlidePreview";
+import { Settings } from "./SlideSettings/SlideSettings";
+import { SlideSettingsProvider } from "./SlideSettings/SlideSettingsProvider";
 
 function App() {
   return (
