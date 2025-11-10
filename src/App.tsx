@@ -6,7 +6,7 @@ import { SlideSettingsProvider } from "./SlideSettingsProvider";
 function App() {
   return (
     <SlideSettingsProvider>
-      <div className="p-9 flex flex-col items-center gap-2.5 bg-slate-300">
+      <div className="p-9 flex flex items-center gap-2.5 bg-slate-300">
         <Settings />
         <SlidePreview />
       </div>
