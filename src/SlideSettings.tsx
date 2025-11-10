@@ -9,6 +9,7 @@ import {
   SelectValue,
 } from "./components/ui/select";
 import { Slider } from "./components/ui/slider";
+import { ImageUploader } from "./ImageUploader";
 import { useSettings, useSlideSettingsDispatch } from "./SlideSettingsProvider";
 
 const buildSelectOptions = () => {
@@ -109,6 +110,8 @@ export function Settings({}: {}) {
           })
         }
       />
+
+      <ImageUploader />
     </div>
   );
 }

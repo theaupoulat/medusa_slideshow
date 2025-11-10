@@ -85,8 +85,14 @@ export const SlidePreview = () => {
           </div>
           <div
             id="screenshot"
-            className="bg-purple-500 w-[1100px] h-[575px] rounded-2xl"
-          ></div>
+            className=" flex items-center justify-center bg-purple-500 w-[1100px] h-[575px] rounded-2xl overflow-hidden"
+          >
+            <img
+              src={settings.screenshotSrc}
+              alt={"screenshot"}
+              className="w-xl h-auto transform rotate-90 translate-x-10"
+            />
+          </div>
         </div>
       </div>
     </>

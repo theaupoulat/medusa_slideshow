@@ -8,6 +8,7 @@ interface SlideSettings {
   slideColor: string;
   slideTitle: string;
   mediaName: string;
+  screenshotSrc: string;
 }
 
 type SettingAction =
@@ -16,7 +17,8 @@ type SettingAction =
   | { type: "changeAnglePosition"; newAnglePosition: number }
   | { type: "changeSlideColor"; newSlideColor: string }
   | { type: "changeSlideTitle"; newSlideTitle: string }
-  | { type: "changeMediaName"; newMediaName: string };
+  | { type: "changeMediaName"; newMediaName: string }
+  | { type: "changeScreenshotSource"; newScreenshotSource: string };
 
 const reducer = (
   settings: SlideSettings,
@@ -59,6 +61,13 @@ const reducer = (
         mediaName: action.newMediaName,
       };
     }
+
+    case "changeScreenshotSource": {
+      return {
+        ...settings,
+        screenshotSrc: action.newScreenshotSource,
+      };
+    }
   }
 };
 
@@ -71,6 +80,7 @@ const defaultSettings: SlideSettings = {
   slideColor: slideColors[0].hex,
   slideTitle: "Zyed et Bouna: 20 ans",
   mediaName: "a la tv sur ma tv",
+  screenshotSrc: "",
 };
 
 const SlideSettingsContext = createContext<SlideSettings | null>(null);
@@ -94,7 +104,7 @@ export const SlideSettingsProvider = ({
   return (
     <SlideSettingsContext value={settings}>
       <SlideSettingsDispatchContext value={dispatch}>
-        {children}{" "}
+        {children}
       </SlideSettingsDispatchContext>
     </SlideSettingsContext>
   );
