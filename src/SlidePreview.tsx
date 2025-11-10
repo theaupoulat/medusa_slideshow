@@ -25,7 +25,15 @@ export const SlidePreview = () => {
     link.click();
   };
 
-  const { slideColor, textPosition, contentAngle, contentPosition } = settings;
+  const {
+    slideColor,
+    textPosition,
+    contentAngle,
+    contentPosition,
+    slideTitle,
+    mediaName,
+  } = settings;
+  console.warn("DEBUGPRINT[4]: SlidePreview.tsx:35: settings=", settings);
 
   const textColor = isColorDark(slideColor) ? "#FFFFFF" : "#000000";
   return (
@@ -47,7 +55,7 @@ export const SlidePreview = () => {
             }}
             className="uppercase text-4xl font-semibold mt-11"
           >
-            zyed et bouna: 20 ans
+            {slideTitle}
           </div>
           <div
             id="line"
@@ -73,7 +81,7 @@ export const SlidePreview = () => {
               WebkitTextStrokeColor: textColor,
             }}
           >
-            a la tv sur ma tv
+            {mediaName}
           </div>
           <div
             id="screenshot"

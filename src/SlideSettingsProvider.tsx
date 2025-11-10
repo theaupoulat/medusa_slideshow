@@ -6,13 +6,17 @@ interface SlideSettings {
   contentAngle: number;
   contentPosition: number;
   slideColor: string;
+  slideTitle: string;
+  mediaName: string;
 }
 
 type SettingAction =
   | { type: "changeTextPosition"; newTextPosition: number }
   | { type: "changeContentPosition"; newContentPosition: number }
   | { type: "changeAnglePosition"; newAnglePosition: number }
-  | { type: "changeSlideColor"; newSlideColor: string };
+  | { type: "changeSlideColor"; newSlideColor: string }
+  | { type: "changeSlideTitle"; newSlideTitle: string }
+  | { type: "changeMediaName"; newMediaName: string };
 
 const reducer = (
   settings: SlideSettings,
@@ -43,16 +47,30 @@ const reducer = (
         slideColor: action.newSlideColor,
       };
     }
+    case "changeSlideTitle": {
+      return {
+        ...settings,
+        slideTitle: action.newSlideTitle,
+      };
+    }
+    case "changeMediaName": {
+      return {
+        ...settings,
+        mediaName: action.newMediaName,
+      };
+    }
   }
 };
 
 type Reducer = React.ActionDispatch<[action: SettingAction]>;
 
-const defaultSettings = {
+const defaultSettings: SlideSettings = {
   textPosition: 0,
   contentAngle: 0,
   contentPosition: 0,
   slideColor: slideColors[0].hex,
+  slideTitle: "Zyed et Bouna: 20 ans",
+  mediaName: "a la tv sur ma tv",
 };
 
 const SlideSettingsContext = createContext<SlideSettings | null>(null);

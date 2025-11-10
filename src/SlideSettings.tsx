@@ -1,5 +1,6 @@
 import "./App.css";
 import { slideColors } from "./colors";
+import { Input } from "./components/ui/input";
 import {
   Select,
   SelectContent,
@@ -84,6 +85,30 @@ export function Settings({}: {}) {
         </SelectTrigger>
         <SelectContent>{...selectOptions}</SelectContent>
       </Select>
+
+      <span> Slide title </span>
+      <Input
+        type="text"
+        value={settings?.slideTitle}
+        onChange={(e) =>
+          dispatchSettings({
+            type: "changeSlideTitle",
+            newSlideTitle: e.target.value,
+          })
+        }
+      />
+
+      <span>Media name</span>
+      <Input
+        type="text"
+        value={settings?.mediaName}
+        onChange={(e) =>
+          dispatchSettings({
+            type: "changeMediaName",
+            newMediaName: e.target.value,
+          })
+        }
+      />
     </div>
   );
 }
