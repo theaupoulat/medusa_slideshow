@@ -1,5 +1,6 @@
 import { type ChangeEvent } from "react";
 import { toast } from "sonner";
+import { Label } from "@/components/ui/label";
 import { Input } from "../../components/ui/input";
 import { useSlideSettingsDispatch } from "../SlideSettingsProvider";
 
@@ -45,14 +46,13 @@ export const ImageUploader = () => {
 
   return (
     <div>
-      <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-        <label className="block mb-4">
-          <span className="text-gray-700 font-medium mb-2 block">
-            Choose an image file to import:
-          </span>
-          <Input type="file" onChange={handleFileChange} accept="image/*" />
-        </label>
-      </div>
+      <Label htmlFor="screenshot"> Screenshot </Label>
+      <Input
+        id="screenshot"
+        type="file"
+        onChange={handleFileChange}
+        accept="image/*"
+      />
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
@@ -7,8 +8,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
-import { Slider } from "@/components/ui/slider";
-import { Textarea } from "@/components/ui/textarea";
 import { slideColors } from "@/helpers/colors";
 import {
   useSettings,
@@ -34,39 +33,41 @@ export const GeneralSlideControls = () => {
 
   const dispatchSettings = useSlideSettingsDispatch();
 
-  if (!dispatchSettings) {
+  if (!dispatchSettings || !settings) {
     return;
   }
 
   return (
-    <div>
-      <span> Slide title </span>
-      <Textarea
-        value={settings?.slideTitle}
-        onChange={(e) =>
-          dispatchSettings({
-            type: "changeSlideTitle",
-            newSlideTitle: e.target.value,
-          })
-        }
-      />
-
-      <span> Pick color </span>
-      <Select
-        onValueChange={(e) =>
-          dispatchSettings({
-            type: "changeSlideColor",
-            newSlideColor: e,
-          })
-        }
-      >
-        <SelectTrigger className="w-[280px]" value={settings?.slideColor}>
-          <SelectValue placeholder="Select a color" />
-        </SelectTrigger>
-        <SelectContent>{...selectOptions}</SelectContent>
-      </Select>
-
+    <div className="flex flex-col gap-3">
       <Separator />
+      Control de la slide
+      <div className="flex flex-col gap-2.5">
+        <Label htmlFor="slide-title"> Slide title </Label>
+        <Input
+          id="slide-title"
+          value={settings?.slideTitle}
+          onChange={(e) =>
+            dispatchSettings({
+              type: "changeSlideTitle",
+              newSlideTitle: e.target.value,
+            })
+          }
+        />
+        <Label htmlFor="color-picker"> Pick color </Label>
+        <Select
+          onValueChange={(e) =>
+            dispatchSettings({
+              type: "changeSlideColor",
+              newSlideColor: e,
+            })
+          }
+        >
+          <SelectTrigger className="w-[280px]" value={settings?.slideColor}>
+            <SelectValue placeholder="Select a color" id="color-picker" />
+          </SelectTrigger>
+          <SelectContent>{...selectOptions}</SelectContent>
+        </Select>
+      </div>
     </div>
   );
 };
