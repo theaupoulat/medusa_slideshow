@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import { slideColors } from "./colors";
+import { isColorDark, slideColors } from "./colors";
 import {
   Select,
   SelectContent,
@@ -29,9 +29,10 @@ function App() {
   const [slideColor, setSlideColor] = useState(slideColors[0].hex);
 
   const selectOptions = buildSelectOptions();
+  const textColor = isColorDark(slideColor) ? "#FFFFFF" : "#000000";
 
   return (
-    <div className="p-9 flex flex-col items-center gap-2.5">
+    <div className="p-9 flex flex-col items-center gap-2.5 bg-slate-300">
       <div id="slider-content" className="w-3xs">
         <span> Adjust text position: {textPosition} </span>
         <Slider
@@ -71,11 +72,23 @@ function App() {
           backgroundColor: slideColor,
         }}
       >
-        <div id="title" className="flex flex-col items-center gap-2">
-          <div id="text" className="uppercase text-4xl font-semibold mt-11">
+        <div id="header" className="flex flex-col items-center gap-2">
+          <div
+            id="title"
+            style={{
+              color: textColor,
+            }}
+            className="uppercase text-4xl font-semibold mt-11"
+          >
             zyed et bouna: 20 ans
           </div>
-          <div id="line" className="border-b-2 w-[400px]"></div>
+          <div
+            id="line"
+            style={{
+              borderColor: textColor,
+            }}
+            className="border-b-2 w-[400px]"
+          ></div>
         </div>
         <div
           id="content"
@@ -86,9 +99,10 @@ function App() {
         >
           <div
             id="media_name"
-            className="uppercase text-4xl bg-red-300"
+            className=" uppercase text-4xl"
             style={{
               transform: `translateX(${textPosition}px)`,
+              color: textColor,
             }}
           >
             a la tv sur ma tv
