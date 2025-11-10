@@ -77,7 +77,7 @@ export const SlidePreview = () => {
           </div>
           <div
             id="screenshot"
-            className="bg-purple-500 w-[900px] h-[450px] rounded-2xl"
+            className="bg-purple-500 w-[1100px] h-[575px] rounded-2xl"
           ></div>
         </div>
       </div>
