@@ -9,6 +9,7 @@ interface SlideSettings {
   slideTitle: string;
   mediaName: string;
   screenshotSrc: string;
+  screenshotVerticalCorrection: number;
 }
 
 type SettingAction =
@@ -18,7 +19,11 @@ type SettingAction =
   | { type: "changeSlideColor"; newSlideColor: string }
   | { type: "changeSlideTitle"; newSlideTitle: string }
   | { type: "changeMediaName"; newMediaName: string }
-  | { type: "changeScreenshotSource"; newScreenshotSource: string };
+  | { type: "changeScreenshotSource"; newScreenshotSource: string }
+  | {
+      type: "changeScreenshotVerticalCorretion";
+      newScreenshotVerticalCorrection: number;
+    };
 
 const reducer = (
   settings: SlideSettings,
@@ -68,6 +73,13 @@ const reducer = (
         screenshotSrc: action.newScreenshotSource,
       };
     }
+
+    case "changeScreenshotVerticalCorretion": {
+      return {
+        ...settings,
+        screenshotVerticalCorrection: action.newScreenshotVerticalCorrection,
+      };
+    }
   }
 };
 
@@ -81,6 +93,7 @@ const defaultSettings: SlideSettings = {
   slideTitle: "Zyed et Bouna: 20 ans",
   mediaName: "a la tv sur ma tv",
   screenshotSrc: "",
+  screenshotVerticalCorrection: 0,
 };
 
 const SlideSettingsContext = createContext<SlideSettings | null>(null);

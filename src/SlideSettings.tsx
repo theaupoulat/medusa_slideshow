@@ -72,6 +72,22 @@ export function Settings({}: {}) {
           })
         }
       />
+
+      <span>
+        Adjust screenshot vertical position:{" "}
+        {settings?.screenshotVerticalCorrection}{" "}
+      </span>
+      <Slider
+        min={-100}
+        max={100}
+        defaultValue={[0]}
+        onValueChange={(e) =>
+          dispatchSettings({
+            type: "changeScreenshotVerticalCorretion",
+            newScreenshotVerticalCorrection: e[0],
+          })
+        }
+      />
       <span> Pick color </span>
       <Select
         onValueChange={(e) =>

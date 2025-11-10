@@ -53,7 +53,7 @@ export const SlidePreview = () => {
             style={{
               color: textColor,
             }}
-            className="uppercase text-4xl font-semibold mt-11"
+            className="w-[600px] uppercase text-4xl font-semibold mt-6 text-center"
           >
             {slideTitle}
           </div>
@@ -90,7 +90,10 @@ export const SlidePreview = () => {
             <img
               src={settings.screenshotSrc}
               alt={"screenshot"}
-              className="w-xl h-auto transform rotate-90 translate-x-10"
+              className="w-xl h-auto transform rotate-90 "
+              style={{
+                transform: `translateY(${settings.screenshotVerticalCorrection}px)`,
+              }}
             />
           </div>
         </div>
