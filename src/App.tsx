@@ -33,38 +33,7 @@ function App() {
 
   return (
     <div className="p-9 flex flex-col items-center gap-2.5 bg-slate-300">
-      <div id="slider-content" className="w-3xs">
-        <span> Adjust text position: {textPosition} </span>
-        <Slider
-          min={-100}
-          max={100}
-          defaultValue={[0]}
-          onValueChange={(e) => setTextPosition(e[0])}
-        />
-
-        <span> Adjust content angle: {contentAngle} </span>
-        <Slider
-          min={-100}
-          max={100}
-          defaultValue={[0]}
-          onValueChange={(e) => setContentAngle(e[0])}
-        />
-
-        <span> Adjust content position: {contentPosition} </span>
-        <Slider
-          min={-100}
-          max={100}
-          defaultValue={[0]}
-          onValueChange={(e) => setContentPosition(e[0])}
-        />
-        <span> Pick color </span>
-        <Select onValueChange={(e) => setSlideColor(e)}>
-          <SelectTrigger className="w-[280px]" value={slideColor}>
-            <SelectValue placeholder="Select a color" />
-          </SelectTrigger>
-          <SelectContent>{...selectOptions}</SelectContent>
-        </Select>
-      </div>
+      <Settings />
       <div
         id="slide"
         className="overflow-clip m-auto w-[800px] h-[1000px] bg-sky-500 flex flex-col items-center justify-between pt-5 "
