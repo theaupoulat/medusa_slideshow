@@ -10,25 +10,14 @@ import {
 import { Slider } from "../components/ui/slider";
 import { Textarea } from "../components/ui/textarea";
 import { slideColors } from "../helpers/colors";
+import { GeneralSlideControls } from "./components/GeneralSlideControls.tsx";
 import { ImageUploader } from "./components/ImageUploader.tsx";
 import {
   useSettings,
   useSlideSettingsDispatch,
 } from "./SlideSettingsProvider.tsx";
 
-const buildSelectOptions = () => {
-  return slideColors.map(({ hex, name }) => (
-    <SelectItem value={hex}>
-      <div
-        className="rounded-md w-3 h-3"
-        style={{ backgroundColor: hex }}
-      ></div>{" "}
-      {name}
-    </SelectItem>
-  ));
-};
 export function Settings({}: {}) {
-  const selectOptions = buildSelectOptions();
   const settings = useSettings();
   const dispatchSettings = useSlideSettingsDispatch();
 
@@ -38,6 +27,7 @@ export function Settings({}: {}) {
 
   return (
     <div id="slider-content" className="w-3xs">
+      <GeneralSlideControls />
       <span> Adjust text position: {settings?.textPosition} </span>
       <Slider
         min={-100}
@@ -51,6 +41,17 @@ export function Settings({}: {}) {
         }
       />
 
+      <span>Media name</span>
+      <Input
+        type="text"
+        value={settings?.mediaName}
+        onChange={(e) =>
+          dispatchSettings({
+            type: "changeMediaName",
+            newMediaName: e.target.value,
+          })
+        }
+      />
       <span> Adjust content angle: {settings?.contentAngle} </span>
       <Slider
         min={-100}
@@ -92,44 +93,6 @@ export function Settings({}: {}) {
           })
         }
       />
-      <span> Pick color </span>
-      <Select
-        onValueChange={(e) =>
-          dispatchSettings({
-            type: "changeSlideColor",
-            newSlideColor: e,
-          })
-        }
-      >
-        <SelectTrigger className="w-[280px]" value={settings?.slideColor}>
-          <SelectValue placeholder="Select a color" />
-        </SelectTrigger>
-        <SelectContent>{...selectOptions}</SelectContent>
-      </Select>
-
-      <span> Slide title </span>
-      <Textarea
-        value={settings?.slideTitle}
-        onChange={(e) =>
-          dispatchSettings({
-            type: "changeSlideTitle",
-            newSlideTitle: e.target.value,
-          })
-        }
-      />
-
-      <span>Media name</span>
-      <Input
-        type="text"
-        value={settings?.mediaName}
-        onChange={(e) =>
-          dispatchSettings({
-            type: "changeMediaName",
-            newMediaName: e.target.value,
-          })
-        }
-      />
-
       <ImageUploader />
     </div>
   );
