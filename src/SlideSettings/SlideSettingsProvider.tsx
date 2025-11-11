@@ -90,9 +90,9 @@ const defaultSettings: SlideSettings = {
   contentAngle: 0,
   contentPosition: 0,
   slideColor: slideColors[0].hex,
-  slideTitle: "Zyed et Bouna: 20 ans",
-  mediaName: "a la tv sur ma tv",
-  screenshotSrc: "",
+  slideTitle: "titre",
+  mediaName: "nom de média",
+  screenshotSrc: "", // TODO: make nullable
   screenshotVerticalCorrection: 0,
 };
 
