@@ -72,7 +72,12 @@ export const SlidePreview = ({
           </div>
           <div
             id="screenshot"
-            className=" flex items-center justify-center bg-purple-500 w-[1100px] h-[575px] rounded-2xl overflow-hidden"
+            className=" flex items-center justify-center w-[1100px] h-[575px] rounded-2xl overflow-hidden shadow-[11px_12px_12.7px_4px_rgba(0,0,0,0.07)]"
+            style={{
+              backgroundColor: settings.screenshotSrc
+                ? "none"
+                : "var(--color-violet-500)",
+            }}
           >
             <img
               src={settings.screenshotSrc}
