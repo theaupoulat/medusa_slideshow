@@ -19,6 +19,23 @@ export const slideColors = [
     hex: "#A93C40",
     name: "rouge brun",
   },
+  {
+    hex: "#EDBF9A",
+    name: "orange mélange",
+  },
+  {
+    hex: "#FFF6B8",
+    name: "jaune hopital",
+  },
+  {
+    hex: "#000000",
+    name: "black block",
+  },
+
+  {
+    hex: "#BC9BD3",
+    name: "violet lilas",
+  },
 ];
 
 type ColorHexCode = string;
