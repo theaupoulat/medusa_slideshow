@@ -61,8 +61,9 @@ export const GeneralSlideControls = () => {
               newSlideColor: e,
             })
           }
+          value={settings?.slideColor}
         >
-          <SelectTrigger className="w-[280px]" value={settings?.slideColor}>
+          <SelectTrigger className="w-[280px]">
             <SelectValue placeholder="Select a color" id="color-picker" />
           </SelectTrigger>
           <SelectContent>{...selectOptions}</SelectContent>
