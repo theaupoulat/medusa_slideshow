@@ -70,24 +70,31 @@ export const SlidePreview = ({
           >
             {mediaName}
           </div>
-          <div
-            id="screenshot"
-            className=" flex items-center justify-center w-[1100px] h-[575px] rounded-2xl overflow-hidden shadow-[11px_12px_12.7px_4px_rgba(0,0,0,0.07)]"
-            style={{
-              backgroundColor: settings.screenshotSrc
-                ? "none"
-                : "var(--color-violet-500)",
-            }}
-          >
-            <img
-              src={settings.screenshotSrc}
-              alt={"screenshot"}
-              className="w-xl h-auto transform rotate-90 "
-              style={{
-                transform: `translateY(${settings.screenshotVerticalCorrection}px)`,
-              }}
-            />
-          </div>
+
+          {settings.screenshotSrc.length > 0 ? (
+            <div
+              id="screenshot"
+              className=" flex items-center bg-transparent justify-center w-[1100px] h-[575px] rounded-2xl overflow-hidden shadow-[11px_12px_12.7px_4px_rgba(0,0,0,0.07)]"
+            >
+              <img
+                src={settings.screenshotSrc}
+                alt={"screenshot"}
+                className="w-xl h-auto transform rotate-90 "
+                style={{
+                  transform: `translateY(${settings.screenshotVerticalCorrection}px)`,
+                }}
+              />
+            </div>
+          ) : (
+            <div
+              id="screenshot"
+              className="bg-violet-500 flex items-center justify-center w-[1100px] h-[575px] rounded-2xl overflow-hidden shadow-[11px_12px_12.7px_4px_rgba(0,0,0,0.07)]"
+            >
+              <span className="text-white transform rotate-90">
+                Ajouter un screenshot
+              </span>
+            </div>
+          )}
         </div>
       </div>
     </>
