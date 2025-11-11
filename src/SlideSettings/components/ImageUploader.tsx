@@ -21,24 +21,29 @@ export const ImageUploader = () => {
 
     reader.onload = (event) => {
       if (!event.target?.result || typeof event.target?.result === "object") {
-        toast.error("It seems no file was loaded. Try again");
+        toast.error("Le fichier n'a pas pu être lu. Essayez à nouveau");
         return;
       }
       try {
-        toast.success("File uploaded" + file.name);
+        toast.success("Fichier téléversé: " + file.name);
         dispatchSettings({
           type: "changeScreenshotSource",
           newScreenshotSource: event.target?.result,
         });
       } catch (err) {
         if (err instanceof Error) {
-          toast.error("Error reading file: " + err.message);
+          toast.error(
+            "Une erreur s'est produite pendant le téléversement du fichier: " +
+              err.message,
+          );
         }
       }
     };
 
     reader.onerror = () => {
-      toast.error("Error reading file");
+      toast.error(
+        "Une erreur s'est produite pendant le téléversement du fichier",
+      );
     };
 
     reader.readAsDataURL(file);
