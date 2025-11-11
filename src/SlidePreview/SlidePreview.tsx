@@ -1,29 +1,17 @@
-import html2canvas from "html2canvas-pro";
-import { useRef } from "react";
-import { Button } from "../components/ui/button";
+import { type RefObject } from "react";
 import { isColorDark } from "../helpers/colors";
 import { useSettings } from "../SlideSettings/SlideSettingsProvider";
 
-export const SlidePreview = () => {
+export const SlidePreview = ({
+  previewRef,
+}: {
+  previewRef: RefObject<HTMLDivElement | null>;
+}) => {
   const settings = useSettings();
-  const slideRef = useRef<HTMLDivElement>(null);
 
   if (!settings) {
     return;
   }
-  const handleCapture = async () => {
-    if (!slideRef.current) {
-      return;
-    }
-
-    const canvas = await html2canvas(slideRef.current, { allowTaint: true });
-    const dataURL = canvas.toDataURL("image/png");
-
-    const link = document.createElement("a");
-    link.href = dataURL;
-    link.download = "screenshot.png";
-    link.click();
-  };
 
   const {
     slideColor,
@@ -38,9 +26,8 @@ export const SlidePreview = () => {
   const textColor = isColorDark(slideColor) ? "#FFFFFF" : "#000000";
   return (
     <>
-      <Button onClick={handleCapture}>Export to PNG</Button>
       <div
-        ref={slideRef}
+        ref={previewRef}
         id="slide"
         className="overflow-clip m-auto w-[800px] h-[1000px] bg-sky-500 flex flex-col items-center justify-between pt-5 "
         style={{
