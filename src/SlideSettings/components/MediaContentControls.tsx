@@ -12,7 +12,7 @@ export const MediaContentControls = () => {
 
   const dispatchSettings = useSlideSettingsDispatch();
 
-  if (!dispatchSettings) {
+  if (!dispatchSettings || !settings) {
     return;
   }
 
@@ -22,7 +22,7 @@ export const MediaContentControls = () => {
       Contrôle du nom du média
       <div className="flex flex-col gap-2.5">
         <Label htmlFor="text-position">
-          Adjust text position: {settings?.textPosition}{" "}
+          Adjust text position: {settings.textPosition}{" "}
         </Label>
         <Slider
           id="text-position"
@@ -41,7 +41,7 @@ export const MediaContentControls = () => {
         <Input
           id="media_name"
           type="text"
-          value={settings?.mediaName}
+          value={settings.mediaName}
           onChange={(e) =>
             dispatchSettings({
               type: "changeMediaName",

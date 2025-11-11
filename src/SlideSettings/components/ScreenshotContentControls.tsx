@@ -12,7 +12,7 @@ export const ScreenshotContentControls = () => {
 
   const dispatchSettings = useSlideSettingsDispatch();
 
-  if (!dispatchSettings) {
+  if (!dispatchSettings || !settings) {
     return;
   }
 
@@ -25,7 +25,7 @@ export const ScreenshotContentControls = () => {
 
         <span></span>
         <Label htmlFor="content-angle">
-          Ajustement angle du contenu: {settings?.contentAngle}{" "}
+          Ajustement angle du contenu: {settings.contentAngle}
         </Label>
         <Slider
           id="content-angle"
@@ -41,8 +41,7 @@ export const ScreenshotContentControls = () => {
         />
 
         <Label htmlFor="content-position">
-          Ajustement position horizontale du contenu:{" "}
-          {settings?.contentPosition}
+          Ajustement position horizontale du contenu: {settings.contentPosition}
         </Label>
         <Slider
           id="content-position"
@@ -59,7 +58,7 @@ export const ScreenshotContentControls = () => {
 
         <Label htmlFor="screenshot-vertical-correction">
           Ajustement verticale du screenshot dans l'insert:{" "}
-          {settings?.screenshotVerticalCorrection}{" "}
+          {settings.screenshotVerticalCorrection}{" "}
         </Label>
         <Slider
           id="screenshot-vertical-correction"

@@ -45,7 +45,7 @@ export const GeneralSlideControls = () => {
         <Label htmlFor="slide-title"> Slide title </Label>
         <Input
           id="slide-title"
-          value={settings?.slideTitle}
+          value={settings.slideTitle}
           onChange={(e) =>
             dispatchSettings({
               type: "changeSlideTitle",
@@ -61,7 +61,7 @@ export const GeneralSlideControls = () => {
               newSlideColor: e,
             })
           }
-          value={settings?.slideColor}
+          value={settings.slideColor}
         >
           <SelectTrigger className="w-[280px]">
             <SelectValue placeholder="Select a color" id="color-picker" />
