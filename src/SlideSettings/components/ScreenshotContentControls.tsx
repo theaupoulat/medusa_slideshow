@@ -1,3 +1,4 @@
+import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Slider } from "@/components/ui/slider";
 import {
@@ -21,8 +22,13 @@ export const ScreenshotContentControls = () => {
       Control du Screenshot
       <div className="flex flex-col gap-2.5">
         <ImageUploader />
-        <span> Adjust content angle: {settings?.contentAngle} </span>
+
+        <span></span>
+        <Label htmlFor="content-angle">
+          Ajustement angle du contenu: {settings?.contentAngle}{" "}
+        </Label>
         <Slider
+          id="content-angle"
           min={-100}
           max={100}
           defaultValue={[0]}
@@ -34,8 +40,12 @@ export const ScreenshotContentControls = () => {
           }
         />
 
-        <span> Adjust content position: {settings?.contentPosition} </span>
+        <Label htmlFor="content-position">
+          Ajustement position horizontale du contenu:{" "}
+          {settings?.contentPosition}
+        </Label>
         <Slider
+          id="content-position"
           min={-100}
           max={100}
           defaultValue={[0]}
@@ -47,11 +57,12 @@ export const ScreenshotContentControls = () => {
           }
         />
 
-        <span>
-          Adjust screenshot vertical position:{" "}
+        <Label htmlFor="screenshot-vertical-correction">
+          Ajustement verticale du screenshot dans l'insert:{" "}
           {settings?.screenshotVerticalCorrection}{" "}
-        </span>
+        </Label>
         <Slider
+          id="screenshot-vertical-correction"
           min={-100}
           max={100}
           defaultValue={[0]}
