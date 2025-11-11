@@ -38,8 +38,8 @@ export const MediaContentControls = () => {
         </Label>
         <Slider
           id="text-position"
-          min={-100}
-          max={100}
+          min={-200}
+          max={250}
           defaultValue={[0]}
           onValueChange={(e) =>
             dispatchSettings({

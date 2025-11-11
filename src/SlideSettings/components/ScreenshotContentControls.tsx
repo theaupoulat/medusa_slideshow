@@ -61,8 +61,8 @@ export const ScreenshotContentControls = () => {
         </Label>
         <Slider
           id="screenshot-vertical-correction"
-          min={-100}
-          max={100}
+          min={-200}
+          max={200}
           defaultValue={[0]}
           onValueChange={(e) =>
             dispatchSettings({
