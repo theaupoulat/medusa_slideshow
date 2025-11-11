@@ -13,8 +13,8 @@ export function Settings({
   return (
     <div id="slider-content" className="w-3xs flex flex-col gap-6">
       <GeneralSlideControls />
-      <MediaContentControls />
       <ScreenshotContentControls />
+      <MediaContentControls />
       <ExportSlide previewRef={previewRef} />
     </div>
   );

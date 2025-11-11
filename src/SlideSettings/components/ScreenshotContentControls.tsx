@@ -19,13 +19,12 @@ export const ScreenshotContentControls = () => {
   return (
     <div className="flex flex-col gap-3">
       <Separator />
-      Control du Screenshot
+      Contenu
       <div className="flex flex-col gap-2.5">
         <ImageUploader />
 
-        <span></span>
         <Label htmlFor="content-angle">
-          Ajustement angle du contenu: {settings.contentAngle}
+          Angle du contenu: {settings.contentAngle}°
         </Label>
         <Slider
           id="content-angle"
@@ -41,7 +40,7 @@ export const ScreenshotContentControls = () => {
         />
 
         <Label htmlFor="content-position">
-          Ajustement position horizontale du contenu: {settings.contentPosition}
+          Position horizontale du contenu: {settings.contentPosition}
         </Label>
         <Slider
           id="content-position"
@@ -57,8 +56,8 @@ export const ScreenshotContentControls = () => {
         />
 
         <Label htmlFor="screenshot-vertical-correction">
-          Ajustement verticale du screenshot dans l'insert:{" "}
-          {settings.screenshotVerticalCorrection}{" "}
+          Ajustement vertical du screenshot dans l'insert:{" "}
+          {settings.screenshotVerticalCorrection}
         </Label>
         <Slider
           id="screenshot-vertical-correction"

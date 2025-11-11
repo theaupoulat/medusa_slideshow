@@ -20,5 +20,5 @@ export const ExportSlide = ({
     link.download = "screenshot.png";
     link.click();
   };
-  return <Button onClick={handleCapture}>Export to PNG</Button>;
+  return <Button onClick={handleCapture}>Exporter (PNG)</Button>;
 };

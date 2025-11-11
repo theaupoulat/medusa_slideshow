@@ -19,10 +19,22 @@ export const MediaContentControls = () => {
   return (
     <div className="flex flex-col gap-3">
       <Separator />
-      Contrôle du nom du média
+      Média
       <div className="flex flex-col gap-2.5">
+        <Label htmlFor="media_name">Nom du média</Label>
+        <Input
+          id="media_name"
+          type="text"
+          value={settings.mediaName}
+          onChange={(e) =>
+            dispatchSettings({
+              type: "changeMediaName",
+              newMediaName: e.target.value,
+            })
+          }
+        />
         <Label htmlFor="text-position">
-          Adjust text position: {settings.textPosition}{" "}
+          Position du nom: {settings.textPosition}
         </Label>
         <Slider
           id="text-position"
@@ -33,19 +45,6 @@ export const MediaContentControls = () => {
             dispatchSettings({
               type: "changeTextPosition",
               newTextPosition: e[0],
-            })
-          }
-        />
-
-        <Label htmlFor="media_name">Nom du média</Label>
-        <Input
-          id="media_name"
-          type="text"
-          value={settings.mediaName}
-          onChange={(e) =>
-            dispatchSettings({
-              type: "changeMediaName",
-              newMediaName: e.target.value,
             })
           }
         />

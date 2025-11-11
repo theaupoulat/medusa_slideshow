@@ -20,7 +20,7 @@ const buildSelectOptions = () => {
       <div
         className="rounded-md w-3 h-3"
         style={{ backgroundColor: hex }}
-      ></div>{" "}
+      ></div>
       {name}
     </SelectItem>
   ));
@@ -40,9 +40,9 @@ export const GeneralSlideControls = () => {
   return (
     <div className="flex flex-col gap-3">
       <Separator />
-      Control de la slide
+      Général
       <div className="flex flex-col gap-2.5">
-        <Label htmlFor="slide-title"> Slide title </Label>
+        <Label htmlFor="slide-title">Titre</Label>
         <Input
           id="slide-title"
           value={settings.slideTitle}
@@ -53,7 +53,7 @@ export const GeneralSlideControls = () => {
             })
           }
         />
-        <Label htmlFor="color-picker"> Pick color </Label>
+        <Label htmlFor="color-picker">Couleur</Label>
         <Select
           onValueChange={(e) =>
             dispatchSettings({
